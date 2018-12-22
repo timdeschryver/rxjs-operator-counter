@@ -20,6 +20,9 @@
     "test": "jest",
     "semantic-release": "semantic-release"
   },
+  "release": {
+    "pkgRoot": "dist"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/minimist": "^1.2.0",
