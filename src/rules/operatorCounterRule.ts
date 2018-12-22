@@ -17,7 +17,7 @@ class OperatorCounterWalker extends Lint.RuleWalker {
     if (!member) return
 
     const call = member.parent as ts.CallExpression
-    if (!call) return
+    if (!call || !call.arguments) return
 
     call.arguments
       .filter(ts.isCallExpression)
