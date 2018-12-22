@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+let minimist = require('minimist')
+
+require('../crawler').crawl({
+  tsConfigPath: minimist(process.argv.slice(2))['p'],
+})

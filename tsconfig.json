@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "typeRoots": ["node_modules/@types/"],
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "dist",
+    "noLib": false,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "removeComments": true,
+    "lib": ["es6", "es2017.object"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "rxjs-operator-counter",
+  "version": "0.0.0-semantically-released",
+  "description": "Count the number of RxJS operators used in an application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timdeschryver/rxjs-operator-counter.git"
+  },
+  "author": "Tim Deschryver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timdeschryver/rxjs-operator-counter/issues"
+  },
+  "homepage": "https://github.com/timdeschryver/rxjs-operator-counter#readme",
+  "bin": "./bin/rxjs-operator-counter",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "yarn test && tsc",
+    "postbuild": "cp -r bin dist && cp package.json dist && cp README.md dist && cp LICENSE dist",
+    "test": "jest",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.2",
+    "semantic-release": "^15.13.1",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "kleur": "^3.0.1",
+    "minimist": "^1.2.0"
+  }
+}
