@@ -13,7 +13,7 @@ class OperatorCounterWalker extends Lint.RuleWalker {
   visitIdentifier(node: ts.Identifier) {
     if (node.text !== 'pipe') return
 
-    const member = node.parent as ts.MemberExpression
+    const member = node.parent as ts.PropertyAccessExpression
     if (!member) return
 
     const call = member.parent as ts.CallExpression
@@ -23,6 +23,6 @@ class OperatorCounterWalker extends Lint.RuleWalker {
       .filter(ts.isCallExpression)
       .map(argument => argument.expression as ts.Identifier)
       .filter(Boolean)
-      .forEach(identifier => this.addFailureAtNode(node, identifier.text))
+      .forEach(identifier => this.addFailureAtNode(identifier, identifier.text))
   }
 }

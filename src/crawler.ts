@@ -27,16 +27,17 @@ export function crawl({ tsConfigPath = '' } = {}) {
       },
     ],
   ])
+  const lintConfiguration = {
+    rules,
+    jsRules: rules,
+    rulesDirectory: [options.rulesDirectory],
+    extends: [''],
+  }
 
   const files = Lint.Linter.getFileNames(program)
   files.forEach(file => {
     const fileContents = program.getSourceFile(file).getFullText()
-    linter.lint(file, fileContents, {
-      rules,
-      jsRules: rules,
-      rulesDirectory: [options.rulesDirectory],
-      extends: [''],
-    })
+    linter.lint(file, fileContents, lintConfiguration)
   })
 
   const results = linter.getResult()
