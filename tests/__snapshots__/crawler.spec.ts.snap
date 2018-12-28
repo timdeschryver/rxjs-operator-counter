@@ -2,5 +2,5 @@
 
 exports[`test run 1`] = `
 "[37mOne moment, crawling files to find operators 🧐[39m[4m[32mResults: 
-[39m[24m[1m[32mmap: 4[39m[22m[1m[32mmapTo: 3[39m[22m[1m[32mcatchError: 1[39m[22m[1m[32mfilter: 1[39m[22m[1m[32mofType: 1[39m[22m[1m[32mswitchMap: 1[39m[22m"
+[39m[24m[1m[32mmap: 4[39m[22m[1m[32mmapTo: 3[39m[22m[1m[32mcatchError: 1[39m[22m[1m[32mfilter: 1[39m[22m[1m[32mofType: 1[39m[22m[1m[32mselect: 1[39m[22m[1m[32mswitchMap: 1[39m[22m"
 `;

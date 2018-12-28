@@ -1,28 +1,25 @@
 import * as ts from 'typescript'
 import * as Lint from 'tslint'
+import { tsquery } from '@phenomnomnominal/tsquery'
 
 export class Rule extends Lint.Rules.AbstractRule {
+  static ruleName = 'operator-counter'
+  static query =
+    'CallExpression[expression.name.name="pipe"] > CallExpression > Identifier'
+
   apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
-    return this.applyWithWalker(
-      new OperatorCounterWalker(sourceFile, this.getOptions())
+    const hits = tsquery(sourceFile, Rule.query, {
+      visitAllChildren: true,
+    })
+    return hits.map(
+      (operator: ts.Identifier) =>
+        new Lint.RuleFailure(
+          sourceFile,
+          operator.getStart(),
+          operator.getEnd(),
+          operator.text,
+          Rule.ruleName
+        )
     )
-  }
-}
-
-class OperatorCounterWalker extends Lint.RuleWalker {
-  visitIdentifier(node: ts.Identifier) {
-    if (node.text !== 'pipe') return
-
-    const member = node.parent as ts.PropertyAccessExpression
-    if (!member) return
-
-    const call = member.parent as ts.CallExpression
-    if (!call || !call.arguments) return
-
-    call.arguments
-      .filter(ts.isCallExpression)
-      .map(argument => argument.expression as ts.Identifier)
-      .filter(Boolean)
-      .forEach(identifier => this.addFailureAtNode(identifier, identifier.text))
   }
 }

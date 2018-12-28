@@ -36,6 +36,7 @@
     "tslint-config-standard": "^8.0.1"
   },
   "dependencies": {
+    "@phenomnomnominal/tsquery": "^3.0.0",
     "kleur": "^3.0.1",
     "minimist": "^1.2.0",
     "tslint": "^5.12.0",
